@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04绘制一条矩形</title>
+</head>
+<body>
+
+<div id="container">
+    <canvas id="canvasElem">
+        你的浏览器不支持canvas，请升级浏览器
+    </canvas>
+</div>
+<script>
+    (function () {
+        var canvas = document.querySelector('#canvasElem');
+        var ctx = canvas.getContext('2d');
+
+        canvas.width = 600;
+        canvas.height = 600;
+        canvas.style.border = "1px solid #000";
+
+        /*ctx.strokeStyle = 'red';
+        ctx.lineWidth = 1;*/
+
+
+        // 前两个参数是:矩形的x,y坐标，　后面两个参数：矩形的宽高
+        //ctx.rect(x,y,w,h);
+        ctx.rect(100, 100, 50, 50);
+        ctx.stroke();
+
+
+        ctx.strokeRect(200, 200, 100, 150);
+
+        //填充矩形
+        ctx.fillRect(300, 300, 40, 40);
+
+    })();
+</script>
+
+
+</body>
+</html>

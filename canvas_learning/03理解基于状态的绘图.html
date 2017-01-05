@@ -23,9 +23,9 @@
             canvas.style.border = "1px solid #000";
 
             ctx.strokeStyle = 'red';
-            ctx.lineWidth = 20;
+            ctx.lineWidth = 10;
 
-            // 为什么是矩形呢？
+            // 为什么是矩形呢,理应是直线？ （因为我把ctx.lineWidth = 10,只要设置小点就行了。
             ctx.beginPath();  //没有必要的。默认上来就一个状态
                               //状态里面： 当前状态里面的绘制样式。
             ctx.moveTo(100, 100);
