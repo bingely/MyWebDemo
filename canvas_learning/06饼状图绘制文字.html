@@ -61,25 +61,11 @@
             // endAngle：结束绘制的弧度！！
             ctx.arc(x0, y0, radius, starAngle, endAngle);
 
-            /**
-             * 绘制文字
-             * @type {string}
-             */
             var txt = data[i].value * 100 + '%';
-            // 计算出文字的要放的角度
-            var txtAngle = tempAngle+1/2*angle;
 
-            //计算文字的 坐标
-            x = x0 + Math.cos(txtAngle * Math.PI / 180) * (radius + 20);
-            y = y0 + Math.sin(txtAngle * Math.PI / 180) * (radius + 20);
+            var x,y;
 
-            // 为什么会出现对齐不一致问题
-            //如果文字在圆形的左侧，那么让文字 对齐方式为 文字结尾对齐当前坐标。
-            if(txtAngle>90&&txtAngle<270) {
-                ctx.textAlign = 'end';
-            }
-            ctx.fillText(txt, x, y);
-
+            te
 
             ctx.fill();
             //下一次绘制的起始角度
