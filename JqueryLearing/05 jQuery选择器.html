@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- // jQuery的一个 特点：隐式迭代 (就是它再内部已经一个个做了遍历逻辑)
+      选择器 无非就是涉及到单元素，多元素之间选择关系（与/或/且）
+-->
+    <meta charset="UTF-8">
+    <title>05 jQuery选择器</title>
+    <style>
+        li{
+            //color: red;
+            font-size: 18px;
+        }
+    </style>
+
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            // # id选择器
+            // js dom.style.backgroundColor = "";
+            // 设置被选择元素的样式属性
+            //$("#b03").css("background","red");
+
+            // 获取被选择元素的样式属性
+            /*var bg = $("#b03").css("color");
+             console.log(bg);*/
+
+            // 类选择器
+            /*$(".liItem").css("background","red");*/
+
+
+            // 标签选择器
+            //$("li").css("background","red");
+
+            // * 通配符选择器
+            //$("*").css("font-size","20px");
+
+            $("#demo").css("background","red");
+            /*$("#demo").css({
+             "color":"red",
+             "font-size" : ""
+             });*/
+
+            // 交集选择器
+            $("li#b03").css("font-size","20px");
+
+
+            // 设置多个样式
+            /*$("li").css({
+             "background-color": "red",
+             "font-size": "20px",
+             "color": "white"
+             });*/
+
+            // 设置样式，可以根据我们自己的意愿来设置
+            $("li").css("font-size", function (i,v) {
+                // index: 指定当前元素的索引号
+                // value: 表示当前元素要设置的样式，此处指：background-color
+                /*console.log(index);
+                 console.log(value);*/
+                //return (i + 1) * parseInt(v) + "px";
+
+                // 只设置第三个
+                if(i === 2) {
+                    return (i + 1) * parseInt(v) + "px";
+                }
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li class="liItem aa" id="demo">helloerybody1</li>
+    <li>helloerybody2</li>
+    <li id="b03">helloerybody3</li>
+    <li>helloerybody4</li>
+    <li class="liItem">helloerybody5</li>
+    <li>helloerybody6</li>
+    <li>helloerybody7</li>
+    <li class="liItem">helloerybody8</li>
+</ul>
+
+</body>
+</html>

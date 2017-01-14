@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--学会如何在浏览器中去调试一个js
+    引入jquery库不能写成  <script src="jquery-1.11.1.js"/>
+
+    为啥现在没有结果？？
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>02 jQuery解决问题</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            height: 200px;
+            background: pink;
+            margin-bottom: 10px;
+            display: none;
+        }
+
+    </style>
+// 不能写成  <script src="jquery-1.11.1.js"/>
+    <script src="jquery-1.11.1.js"></script>
+    <script>
+        $(document).ready(function () {
+                $("#demo").click(function () {
+                    $("div").show(1000).html("我是内容")
+                });
+        });
+
+    </script>
+</head>
+<body>
+<input type="button" value="i am buttom" id="demo">
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

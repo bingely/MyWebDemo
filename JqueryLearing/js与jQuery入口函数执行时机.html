@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<!--
+    就是在js是正常的，jquery没有得到相应的效果
+-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="../jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+
+        window.onload = function(){
+            //alert($("#img3").width());
+            alert(document.getElementsByTagName("img")[2].clientWidth);
+        };
+
+        /*$(function () {
+            //alert(document.getElementsByTagName("img")[2].clientWidth);
+            alert($("#img3").width());
+        });*/
+
+    </script>
+</head>
+<body>
+<img src="imgs/01.jpg" alt=""/>
+<img src="imgs/02.jpg" alt=""/>
+<img id="img3" src="imgs/03.jpg" alt=""/>
+
+
+</body>
+</html>
