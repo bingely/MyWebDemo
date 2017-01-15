@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>07_绝对定位参考点</title>
+
+    <style type="text/css">
+        div {
+            width: 100px;
+            height: 100px;
+
+
+        }
+
+
+        /*绝对定位的参考点，如果用top描述，那么定位参考点就是页面的左上角，而不是浏览器的左上角：*/
+        .test1{
+            background-color: blue;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+
+        /*如果用bottom描述，那么就是浏览器首屏窗口尺寸，对应的页面的左下角：*/
+        .test2{
+            background-color: red;
+            position: absolute;
+            bottom: 100px;
+            left: 100px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="test1"></div>
+<div class="test2"></div>
+
+
+<img src="imgs/03.jpg" alt="jkljl"/>
+
+
+</body>
+</html>
