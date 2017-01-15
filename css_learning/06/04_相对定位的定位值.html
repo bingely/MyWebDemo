@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>04_相对定位的定位值</title>
+    <style type="text/css">
+        div{
+            width: 400px;
+            height: 400px;
+            background-color: black;
+            margin: 100px;
+
+
+            /* 知道下面几组的情况*/
+            position: relative;
+            right: -100px;
+            bottom: 100px;
+
+            /*
+            1 position: relative;
+            2 top: -200px;       → 负数就是相反的方向，如果是正，就是下边，如果是负数就是上边
+            3 right: -200px;
+            */
+
+            /*
+
+            ↗：
+            1 position: relative;
+            2 right: -300px;
+            3 bottom: 300px;
+            完全等价于：
+            4 position: relative;
+            5 left: 300px;
+            1 bottom: 300px;
+
+            */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="testdiv">dsaf</div>
+</body>
+</html>
