@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<!--这个是移动端适配要写上的-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+	<title></title>
+	<!--这个是进行切除多余的空白 -->
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #f0f0f0;
+			overflow: hidden;
+		}
+	</style>
+	<script src="bower_components/konva/konva.min.js"></script>
+</head>
+<body>
+	<div id="container">
+	</div>
+
+	<script>
+		//创建舞台
+		var stage = new Konva.Stage({
+			container: 'container',
+			width: window.innerWidth,//全屏
+			height: window.innerHeight
+		});
+
+		//创建层
+		var layer = new Konva.Layer();
+		stage.add(layer);
+	
+		//中心点坐标
+		var cenX = stage.width() / 2; //注意Konva获取数据都是用方法获取值
+		var cenY = stage.height() / 2;
+
+		var x = 1/8 * stage.width();
+		var y = cenY;
+
+		var height = 1 / 12 * stage.height(); 
+		var maxWidth =  3/4 * stage.width();
+		//绘制一个进度条
+		var innerRect = new Konva.Rect({
+			x: x,
+			y: y,
+			width: 100,
+			height: height,
+			opacity: .7,
+			fill: 'lightblue',
+			cornerRadius: height / 2  // corner:角落
+		});
+
+		//把内部的矩形放到层里面去
+		layer.add( innerRect );
+
+		//创建外边框矩形
+		var outerRect = new Konva.Rect({
+			x: x,	//矩形的x的坐标
+			y: y,	//矩形的y坐标
+			width: maxWidth, // 矩形的宽度
+			height: height,	// 矩形的高度
+			stroke: 'blue', // 如果设置了stroke，那么就进行描边
+			strokeWidth: 4, //描边的宽度
+			// fill: 'green', // 如果设置了fill的样式，那么进行填充
+			cornerRadius: height / 2 // 设置圆角的半径
+		});
+		layer.add( outerRect );
+
+		layer.draw();
+
+
+		var loadImgIndex = 0;
+		var imgSrcArray = ['1.png','2.png'];//要加载的图片的数组
+		
+		for( var i =0; i< imgSrcArray.length ; i++ ) {
+			var img = new Image();
+			img.src = imgSrcArray[i];
+			img.onload = function() {
+				loadImgIndex +=1;//每加载一张图片，索引加1
+
+				innerRect.to({ //进度条动画
+					//设置内部的 进度条宽度动画到  
+					width: maxWidth * (loadImgIndex / imgSrcArray.length ),
+					//动画的持续时间
+					duration: 1.4,
+					// 动画的效果
+					easing: Konva.Easings.ElasticEaseOut
+					// opacity: .3
+				});
+			};
+		}
+
+		//Ｋｏｎｖａ的动画系统
+		
+		
+	</script>
+</body>
+</html>

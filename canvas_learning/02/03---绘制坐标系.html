@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>03Canvas案例-绘制</title>
+	</head>
+<body>
+
+	<div id="container">
+		<canvas id="cavsElem">
+			你的浏览器不支持canvas，请升级浏览器
+		</canvas>
+	</div>
+
+	<script>
+		(function(){
+			var canvas = document.querySelector( '#cavsElem' );
+			var ctx = canvas.getContext( '2d' );
+
+			canvas.width = 600;
+			canvas.height = 600;
+			canvas.style.border = "1px solid #000";
+
+			
+			//100， 400
+			arrowWith = 10;
+			var maxHeight = 300;
+			var maxWidth = 300;
+
+			//绘制x轴
+			ctx.beginPath();
+			ctx.moveTo(100, 400);
+			ctx.lineTo( 400,400);
+			ctx.lineTo( 400 - arrowWith, 400 - arrowWith);
+			ctx.moveTo(400,400);
+			ctx.lineTo( 400 - arrowWith, 400 + arrowWith);
+			ctx.strokeStyle = 'purple';
+			ctx.stroke();
+
+			//绘制y轴
+			ctx.beginPath();
+			ctx.moveTo(100,400);
+			ctx.lineTo(100,100);
+
+			ctx.lineTo(100 - arrowWith, 100 + arrowWith);
+			ctx.moveTo(100,100);
+			ctx.lineTo(100 + arrowWith, 100 + arrowWith);
+			ctx.strokeStyle = 'green';
+			ctx.stroke();
+
+			//绘制 点的坐标
+			var data = [.1,.6,.8,.7, .4, .6];
+			//每个点之间的距离
+			var widthSpace = maxWidth / (data.length+1);
+			ctx.beginPath();
+			for( var i = 1; i <= data.length; i++ ) {
+				ctx.lineTo( 100 + i * widthSpace, 400 - data[i-1] * maxHeight );
+			}
+			ctx.strokeStyle = 'blue';
+			ctx.stroke();
+
+		})();
+	</script>
+</body>
+</html>
